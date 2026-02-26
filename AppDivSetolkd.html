@@ -20,41 +20,41 @@
             </ul>
         </div>
         
-        <div id="altas"> 
-            <h2>Alta de alumnos</h2>
+        <div id="s_create"> 
+            <h2>Create Student</h2>
             <div class="body">
-                Clave:<input type="text" maxlength="6" id="claveA"/><br>
-                Nombre:<input type="text" maxlength="20" id="nombreA"/><br>
-                Apellido Paterno:<input type="text" maxlength="25" id="apPaternoA"/><br>
-                Apellido Materno:<input type="text" maxlength="25" id="apMaternoA"/><br>
-                Fecha de Nacimiento:<input type="text" maxlength="10" id="fechaA"/><br>
-                Telefono:<input type="text" maxlength="25" id="telefonoA"/><br>
-                Celular:<input type="text" maxlength="25" id="celularA"/><br>
-                Correo:<input type="text" maxlength="25" id="correoA"/><br>
-                Sexo:
+                ID:<input type="text" maxlength="6" id="IDA"/><br>
+                Name:<input type="text" maxlength="20" id="nameA"/><br>
+                First Last Name:<input type="text" maxlength="25" id="firstLastNameA"/><br>
+                Second Last Name:<input type="text" maxlength="25" id="secondLastNameA"/><br>
+                Birthday:<input type="text" maxlength="10" id="birthDayA"/><br>
+                Phone:<input type="text" maxlength="25" id="phoneA"/><br>
+                Cell Phone:<input type="text" maxlength="25" id="celPhoneA"/><br>
+                E-mail:<input type="text" maxlength="25" id="emailA"/><br>
+                Sex:
                 <table>
-                    <tr><td><input type="radio" id="sexoMA" name="sexoA" value="Masculino"/>Masculino</td>
-                    <td><input type="radio" id="sexoFA" name="sexoA" value="Femenino"/>Femenino</td></tr>
+                    <tr><td><input type="radio" id="sexMA" name="sexA" value="Male"/>Male</td>
+                    <td><input type="radio" id="sexFA" name="sexA" value="Female"/>Female</td></tr>
                 </table>
-                    Tipo de sangre:<input type="text" maxlength="15" id="sangreA"/><br>
-                    Estado Civil:
-                    <select id="edoCivilA">
-                        <option value="Soltero">Soltero/a</option>
-                        <option value="Casado">Casado/a</option>
-                        <option value="Otro">No especificado</option>
+                    Blood Type:<input type="text" maxlength="15" id="bloodTypeA"/><br>
+                    Marital Status:
+                    <select id="maritalStatusA">
+                        <option value="Single">Single</option>
+                        <option value="Married">Married</option>
+                        <option value="Other">Other</option>
                     </select><br>
-                    Carrera:
-                    <select id="carreraA">
-                        <option value="Cibernetica">Ingenier&iacute;a Cibern&eacute;tica</option>
-                        <option value="Mecatronica">Ingenier&iacute;a Mecatr&oacute;nica</option>
-                        <option value="Civil">Ingenier&iacute;a Civil</option>
-                        <option value="Industrial">Ingenier&iacute;a Industrial</option>
-                        <option value="Electronica">Ingenier&iacute;a Electr&oacute;nica</option>
-                        <option value="Mecanica">Ingenier&iacute;a Mec&aacute;nica</option>
-                        <option value="Biomedica">Ingenier&iacute;a Biom&eacute;dica</option>
+                    Career:
+                    <select id="careerA">
+                        <option value="Cibernetic">Cybernetic Engineering</option>
+                        <option value="Mechatronics">Mechatronic Engineering</option>
+                        <option value="Civil">Civil Engineering</option>
+                        <option value="Industrial">Industrial Engineering</option>
+                        <option value="Electronics">Electric Engineering</option>
+                        <option value="Mecanics">Mechanic Engineering</option>
+                        <option value="Biomedics">Biomedic Engineering</option>
                     </select><br>
-                    Semestre:
-                    <select id="semestreA">
+                    Semester:
+                    <select id="semesterA">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -65,49 +65,49 @@
                         <option value="8">8</option>
                         <option value="9">9</option>
                     </select><br>
-                    Direcci&oacute;n:<br><div class="body"><textarea id="direccionA" rows="10" cols="30"></textarea></div>
+                    Address:<br><div class="body"><textarea id="addressA" rows="10" cols="30"></textarea></div>
             </div>
             <br>
             <button class="button" type="submit" onclick="sendData()">SUBMIT</button>
         </div>
 
-        <div id="bajas" style="display:none"> 
-            <h2>Baja de alumnos</h2>
+        <div id="s_delete" style="display:none"> 
+            <h2>Delete Student</h2>
             <div class="body">
-                Introduce la clave del alumno a dar de baja:<input type="text" maxlength="6" id="claveB"/><br>
+                Introduce la ID del alumno a dar de baja:<input type="text" maxlength="6" id="claveB"/><br>
             <button class="button" type="submit" onclick="deleteData()">DAR DE BAJA</button>
         </div>
          </div>
 
-        <div id="cambios" style="display:none">
-            <h2>Cambios en Informacion de Alumnos</h2>
-             Introduce la clave del alumno a modificar:<input type="text" maxlength="6" id="buscarC"/><br>
+        <div id="s_update" style="display:none">
+            <h2>Change Student Information</h2>
+             Introduce la ID del alumno a modificar:<input type="text" maxlength="6" id="buscarC"/><br>
             <button class="button" type="submit" onclick="changeData()">Buscar</button>
             <div class="body" id="formCambios" style="display:none">
                 <div class="body">
                 <p>Modifica los campos que requieras:</p>
-                Clave:<input type="text" maxlength="6" id="claveC"/><br>
-                Nombre:<input type="text" maxlength="20" id="nombreC"/><br>
-                Apellido Paterno:<input type="text" maxlength="25" id="apPaternoC"/><br>
-                Apellido Materno:<input type="text" maxlength="25" id="apMaternoC"/><br>
-                Fecha de Nacimiento:<input type="text" maxlength="10" id="fechaC"/><br>
-                Telefono:<input type="text" maxlength="15" id="telefonoC"/><br>
-                Celular:<input type="text" maxlength="15" id="celularC"/><br>
-                Correo:<input type="text" maxlength="15" id="correoC"/><br>
-                Sexo:
+                ID:<input type="text" maxlength="6" id="claveC"/><br>
+                Name:<input type="text" maxlength="20" id="nameC"/><br>
+                First Last Name:<input type="text" maxlength="25" id="firstLastNameC"/><br>
+                Second Last Name:<input type="text" maxlength="25" id="secondLastNameC"/><br>
+                Birthday:<input type="text" maxlength="10" id="fechaC"/><br>
+                Phone:<input type="text" maxlength="15" id="phoneC"/><br>
+                Cell Phone:<input type="text" maxlength="15" id="celPhoneC"/><br>
+                E-mail:<input type="text" maxlength="15" id="emailC"/><br>
+                Sex:
                 <table>
-                    <tr><td><input type="radio" id="sexoMC" value="Masculino" onclick="document.getElementById('sexoFC').checked=false"/>Masculino</td>
-                    <td><input type="radio" id="sexoFC" value="Femenino" onclick="document.getElementById('sexoMC').checked = false"/>Femenino</td></tr>
+                    <tr><td><input type="radio" id="sexMC" value="Masculino" onclick="document.getElementById('sexFC').checked=false"/>Masculino</td>
+                    <td><input type="radio" id="sexFC" value="Femenino" onclick="document.getElementById('sexMC').checked = false"/>Femenino</td></tr>
                 </table>
-                    Tipo de sangre:<input type="text" maxlength="15" id="sangreC"/><br>
-                    Estado Civil:
-                    <select id="edoCivilC">
-                        <option value="Soltero">Soltero/a</option>
-                        <option value="Casado">Casado/a</option>
-                        <option value="Otro">No especificado</option>
+                    Blood Type:<input type="text" maxlength="15" id="bloodTypeC"/><br>
+                    Marital Status:
+                    <select id="maritalStatusC">
+                        <option value="Single">Single/a</option>
+                        <option value="Married">Married/a</option>
+                        <option value="Other">Other</option>
                     </select><br>
-                    Carrera:
-                    <select id="carreraC">
+                    Career:
+                    <select id="careerC">
                         <option value="Cibernetica">Ingenier&iacute;a Cibern&eacute;tica</option>
                         <option value="Mecatronica">Ingenier&iacute;a Mecatr&oacute;nica</option>
                         <option value="Civil">Ingenier&iacute;a Civil</option>
@@ -116,8 +116,8 @@
                         <option value="Mecanica">Ingenier&iacute;a Mec&aacute;nica</option>
                         <option value="Biomedica">Ingenier&iacute;a Biom&eacute;dica</option>
                     </select><br>
-                    Semestre:
-                    <select id="semestreC">
+                    Semester:
+                    <select id="semesterC">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -128,31 +128,31 @@
                         <option value="8">8</option>
                         <option value="9">9</option>
                     </select><br>
-                    Direcci&oacute;n:<br><div class="body"><textarea id="direccionC" rows="10" cols="30"></textarea></div>
+                    Address:<br><div class="body"><textarea id="addressC" rows="10" cols="30"></textarea></div>
                     <p id="index" style="display:none"></p>
                     <button class="button" type="submit" onclick="updateData(document.getElementById('index').innerHTML)">Actualizar</button>
                 </div>
             </div>
         </div>
 
-        <div id="buscar" style="display:none">
-            <h2>Consulta de Alumnos</h2>
+        <div id="s_search" style="display:none">
+            <h2>Search Student</h2>
             Selecciona un campo para buscar:<br />
             <select id="campoBusqueda">
-                <option value="clave">Clave</option>
-                <option value="nombre">Nombre</option>
-                <option value="apPaterno">Apellido Paterno</option>
-                <option value="apMaterno">Apellido Materno</option>
-                <option value="fechaNac">Fecha de Nacimiento</option>
-                <option value="tel">Telefono</option>
-                <option value="cel">Celular</option>
-                <option value="correo">Correo</option>
-                <option value="sexo">Sexo</option>
-                <option value="sangre">Tipo de Sangre</option>
-                <option value="edoCivil">Estado Civil</option>
-                <option value="carrera">Carrera</option>
-                <option value="semestre">Semestre</option>
-                <option value="direccion">Direccion</option>
+                <option value="ID">ID</option>
+                <option value="name">Name</option>
+                <option value="firstLastName">First Last Name</option>
+                <option value="secondLastName">Second Last Name</option>
+                <option value="birthDay">Birthday</option>
+                <option value="phone">Phone</option>
+                <option value="cel">Cell Phone</option>
+                <option value="email">E-mail</option>
+                <option value="sex">Sex</option>
+                <option value="bloodType">Tipo de Sangre</option>
+                <option value="maritalStatus">Marital Status</option>
+                <option value="career">Career</option>
+                <option value="semester">Semester</option>
+                <option value="address">Direccion</option>
             </select>
             <input type="text" maxlength="40" id="textoBusqueda"/><br>
             <button class="button" type="submit" onclick="busqueda()">HACER BUSQUEDA</button>
@@ -162,8 +162,8 @@
         </div>
 
         <div id="s_report" style="display:none">
-            <h2>Reporte de Alumnos</h2>
-            <table id="tableReport" class="s_table">
+            <h2>Student Report</h2>
+            <table id="tablaReporte" class="tabla">
             </table>
         </div>
     </div>
