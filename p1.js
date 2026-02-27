@@ -103,18 +103,19 @@ function s_search()
 
 function s_report()
 {
-	document.getElementById("s_create").style.display = "none";
-	document.getElementById("s_delete").style.display = "none";
-	document.getElementById("s_search").style.display = "none";
-	document.getElementById("s_update").style.display = "none";
+	document.getElementById("altas").style.display = "none";
+	document.getElementById("bajas").style.display = "none";
+	document.getElementById("buscar").style.display = "none";
+	document.getElementById("cambios").style.display = "none";
 	document.getElementById("s_report").style.display = "block";
 
 	var table = document.getElementById("tableReport");
 
 	table.innerHTML = "";
 	table.innerHTML = "<thead><tr>"
-						+"<th>ID<th>"
+						+"<th>ID</th>"
 						+"<th>Name</th>"
+						+"<th>Sex</th>"
 						+"<th>Marital Status</th>"
 						+"</tr></thead>"
 						+"<tbody>";
