@@ -17,7 +17,7 @@ txt += '<name>Pedro</name>';
 txt += '<sex>Male</sex>';
 txt+= '<maritalStatus>Married</maritalStatus>';
 txt += '</student>';
-txt += '</studentes>';
+txt += '</students>';
 
 var parser = new DOMParser();
 
@@ -32,6 +32,47 @@ function s_create()
 	document.getElementById("s_update").style.display = "none";
 	document.getElementById("s_report").style.display = "none";
 } //s_create
+
+function sendData()
+{
+	id = document.getElementById("IDA").value;
+	name = document.getElementById("nameA").value;
+	sex = "";
+	if(document.getElementById("sexMA").checked == true)
+		sex = "Male";
+	else
+		sex = "Female";
+
+	maritalStatus = document.getElementById("maritalStatusA").value;
+
+	newEleID = xmlDoc.createElement("ID");
+	newTxtID = xmlDoc.createTextNode(id);
+	newEleID.appendChild(newTxtID);
+
+	newEleName = xmlDoc.createElement("name");
+	newTxtName =  xmlDoc.createTextNode(name);
+	newEleName.appendChild(newTxtName);
+
+	newEleSex = xmlDoc.createElement("sex");
+	newTxtSex =  xmlDoc.createTextNode(sex);
+	newEleSex.appendChild(newTxtSex);
+
+	newEleMaritalStatus = xmlDoc.createElement("maritalStatus");
+	newTxtMaritalStatus =  xmlDoc.createTextNode(maritalStatus);
+	newEleMaritalStatus.appendChild(newTxtMaritalStatus);
+
+
+	newEleA = xmlDoc.createElement("student");
+	newEleA.appendChild(newEleID);
+	newEleA.appendChild(newEleName);
+	newEleA.appendChild(newEleSex);
+	newEleA.appendChild(newEleMaritalStatus);
+
+	xmlDoc.getElementsByTagName("students")[0].appendChild(newEleA);
+
+
+	alert("Student created ");
+}//sendData()
 
 function s_delete()
 {
@@ -80,7 +121,7 @@ function s_report()
 
 	x = xmlDoc.getElementsByTagName("student");
 	l = x.length; 
-	for(i=0;i<1;i++)
+	for(i=0;i<l;i++)
 	{
 			table.innerHTML += "<tr>"
 							+"<td>"
