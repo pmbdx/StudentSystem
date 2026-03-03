@@ -126,6 +126,7 @@ function s_update()
 	document.getElementById("s_report").style.display = "none";
 }
 
+var indexFound;
 function changeData()
 {
 	ID= document.getElementById("searchC").value;
@@ -135,30 +136,41 @@ function changeData()
 	l = x.length;
 	while ((i < l) && (flag==false))
 	{
-		if(x[i].childNodes[0].childNodes[0].nodeValue == ID)
+		if(x[i].childNodes[0].childNodes[0].nodeValue == ID)		//Found student
 		{
-			userconf = confirm("Delete student : "
-								+x[i].childNodes[0].childNodes[0].nodeValue //ID
-								+" - "
-								+x[i].childNodes[1].childNodes[0].nodeValue //name
-								+"?"
-							);
-			if(userconf == true)
+			document.getElementById("IDC").value =
+				x[i].childNodes[0].childNodes[0].nodeValue;
+			document.getElementById("nameC").value =
+				x[i].childNodes[1].childNodes[0].nodeValue;
+			if(x[i].childNodes[2].childNodes[0].nodeValue == "Female")
 			{
-				x[i].parentNode.removeChild(x[i]);
-				alert("Student deleted");
+				document.getElementById("sexFC").checked = true;
+				document.getElementById("sexMC").checked = false;
 			}
-				flag = true;
-		
+			else	//"Male"
+			{
+				document.getElementById("sexMC").checked = true;
+				document.getElementById("sexFC").checked = false;
+			}
+			document.getElementById("maritalStatusC").value =
+				x[i].childNodes[3].childNodes[0].nodeValue;
+			indexFound = i;
+			flag = true;
 		}//if 
 		else
 		{
 			i++;	
-	
 		}//else
 	}//while
-	if(flag == false)
+	if(flag)
+	{
+		document.getElementById("formUpdate").style.display = "block";
+	}
+	else
+	{
+		document.getElementById("formUpdate").style.display = "none";
 		alert("Student not found");
+	}
 }
 function s_search()
 {
