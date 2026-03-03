@@ -74,8 +74,8 @@
         <div id="s_delete" style="display:none"> 
             <h2>Delete Student</h2>
             <div class="body">
-                Introduce la ID del alumno a dar de baja:<input type="text" maxlength="6" id="claveB"/><br>
-            <button class="button" type="submit" onclick="deleteData()">DAR DE BAJA</button>
+                Type Student ID to be deleted :<input type="text" maxlength="6" id="IDB"/><br>
+            <button class="button" type="submit" onclick="deleteData()">DELETE</button>
         </div>
          </div>
 
@@ -137,8 +137,8 @@
 
         <div id="s_search" style="display:none">
             <h2>Search Student</h2>
-            Selecciona un campo para buscar:<br />
-            <select id="campoBusqueda">
+            Select a field for search: <br />
+            <select id="fieldSearch">
                 <option value="ID">ID</option>
                 <option value="name">Name</option>
                 <option value="firstLastName">First Last Name</option>
@@ -154,10 +154,10 @@
                 <option value="semester">Semester</option>
                 <option value="address">Direccion</option>
             </select>
-            <input type="text" maxlength="40" id="textoBusqueda"/><br>
-            <button class="button" type="submit" onclick="busqueda()">HACER BUSQUEDA</button>
+            <input type="text" maxlength="40" id="textSearch"/><br>
+            <button class="button" type="submit" onclick="search()">Search</button>
             <p id="message"></p>
-            <table id="resultadoBusqueda" class="tabla">
+            <table id="resultSearch" class="s_table">
             </table>
         </div>
 
