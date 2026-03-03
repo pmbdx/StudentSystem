@@ -81,23 +81,23 @@
 
         <div id="s_update" style="display:none">
             <h2>Change Student Information</h2>
-             Introduce la ID del alumno a modificar:<input type="text" maxlength="6" id="buscarC"/><br>
-            <button class="button" type="submit" onclick="changeData()">Buscar</button>
-            <div class="body" id="formCambios" style="display:none">
+             Enter ID Student to be updated:<input type="text" maxlength="6" id="searchC"/><br>
+            <button class="button" type="submit" onclick="changeData()">Search</button>
+            <div class="body" id="formUpdate" style="display:none">
                 <div class="body">
-                <p>Modifica los campos que requieras:</p>
+                <p>Please modify information:</p>
                 ID:<input type="text" maxlength="6" id="claveC"/><br>
                 Name:<input type="text" maxlength="20" id="nameC"/><br>
                 First Last Name:<input type="text" maxlength="25" id="firstLastNameC"/><br>
                 Second Last Name:<input type="text" maxlength="25" id="secondLastNameC"/><br>
-                Birthday:<input type="text" maxlength="10" id="fechaC"/><br>
+                Birthday:<input type="text" maxlength="10" id="birthDayC"/><br>
                 Phone:<input type="text" maxlength="15" id="phoneC"/><br>
                 Cell Phone:<input type="text" maxlength="15" id="celPhoneC"/><br>
                 E-mail:<input type="text" maxlength="15" id="emailC"/><br>
                 Sex:
                 <table>
-                    <tr><td><input type="radio" id="sexMC" value="Masculino" onclick="document.getElementById('sexFC').checked=false"/>Masculino</td>
-                    <td><input type="radio" id="sexFC" value="Femenino" onclick="document.getElementById('sexMC').checked = false"/>Femenino</td></tr>
+                    <tr><td><input type="radio" id="sexMC" value="Masculino" onclick="document.getElementById('sexFC').checked=false"/>Male</td>
+                    <td><input type="radio" id="sexFC" value="Femenino" onclick="document.getElementById('sexMC').checked = false"/>Female</td></tr>
                 </table>
                     Blood Type:<input type="text" maxlength="15" id="bloodTypeC"/><br>
                     Marital Status:
@@ -108,7 +108,7 @@
                     </select><br>
                     Career:
                     <select id="careerC">
-                        <option value="Cibernetica">Ingenier&iacute;a Cibern&eacute;tica</option>
+                        <option value="Cibernetica">Cybernetic Engineering</option>
                         <option value="Mecatronica">Ingenier&iacute;a Mecatr&oacute;nica</option>
                         <option value="Civil">Ingenier&iacute;a Civil</option>
                         <option value="Industrial">Ingenier&iacute;a Industrial</option>
@@ -130,7 +130,7 @@
                     </select><br>
                     Address:<br><div class="body"><textarea id="addressC" rows="10" cols="30"></textarea></div>
                     <p id="index" style="display:none"></p>
-                    <button class="button" type="submit" onclick="updateData(document.getElementById('index').innerHTML)">Actualizar</button>
+                    <button class="button" type="submit" onclick="updateData(document.getElementById('index').innerHTML)">Update</button>
                 </div>
             </div>
         </div>

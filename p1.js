@@ -126,6 +126,40 @@ function s_update()
 	document.getElementById("s_report").style.display = "none";
 }
 
+function changeData()
+{
+	ID= document.getElementById("searchC").value;
+	i = 0;
+	flag = false;	
+	x = xmlDoc.getElementsByTagName("student");
+	l = x.length;
+	while ((i < l) && (flag==false))
+	{
+		if(x[i].childNodes[0].childNodes[0].nodeValue == ID)
+		{
+			userconf = confirm("Delete student : "
+								+x[i].childNodes[0].childNodes[0].nodeValue //ID
+								+" - "
+								+x[i].childNodes[1].childNodes[0].nodeValue //name
+								+"?"
+							);
+			if(userconf == true)
+			{
+				x[i].parentNode.removeChild(x[i]);
+				alert("Student deleted");
+			}
+				flag = true;
+		
+		}//if 
+		else
+		{
+			i++;	
+	
+		}//else
+	}//while
+	if(flag == false)
+		alert("Student not found");
+}
 function s_search()
 {
 	document.getElementById("s_create").style.display = "none";
