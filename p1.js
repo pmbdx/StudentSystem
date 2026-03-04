@@ -172,6 +172,38 @@ function changeData()
 		alert("Student not found");
 	}
 }
+
+function updateData()
+{
+	// Get updated values from form
+	id = document.getElementById("IDC").value;
+	name = document.getElementById("nameC").value;
+	sex = "";
+	if(document.getElementById("sexMC").checked == true)
+		sex = "Male";
+	else
+		sex = "Female";
+	
+	maritalStatus = document.getElementById("maritalStatusC").value;
+
+	// Update the student in XML
+	x = xmlDoc.getElementsByTagName("student");
+	
+	// Update ID
+	x[indexFound].childNodes[0].childNodes[0].nodeValue = id;
+	// Update Name
+	x[indexFound].childNodes[1].childNodes[0].nodeValue = name;
+	// Update Sex
+	x[indexFound].childNodes[2].childNodes[0].nodeValue = sex;
+	// Update Marital Status
+	x[indexFound].childNodes[3].childNodes[0].nodeValue = maritalStatus;
+	
+	alert("Student updated successfully");
+	
+	// Hide the form after update
+	document.getElementById("formUpdate").style.display = "none";
+	document.getElementById("searchC").value = "";
+}
 function s_search()
 {
 	document.getElementById("s_create").style.display = "none";
