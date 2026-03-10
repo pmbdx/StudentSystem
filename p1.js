@@ -1,3 +1,8 @@
+var boolDataMode_XML = 1;
+var boolDataMode_JSON = 2;
+var boolDataMode = boolDataMode_JSON;
+
+
 var txt = '<students>';
 txt += '<student>';
 txt += '<ID>12345</ID>';
@@ -22,6 +27,16 @@ txt += '</students>';
 var parser = new DOMParser();
 
 var xmlDoc = parser.parseFromString(txt,"text/xml");
+
+var txtj = '{"student": ['
+			+ '{"ID":92345,"name":"Juan","sex":"Male","maritalStatus":"Single"},'
+			+ '{"ID":923456,"name":"Leticia","sex":"Female","maritalStatus":"Single"},'
+			+ '{"ID":9234578,"name":"Pedro","sex":"Male","maritalStatus":"Married"}'
+			+ ']}';
+
+var students = JSON.parse(txtj);
+
+
 
 
 function s_create()
@@ -276,25 +291,48 @@ function s_report()
 						+"<th>Marital Status</th>"
 						+"</tr></thead>"
 						+"<tbody>";
-
-	x = xmlDoc.getElementsByTagName("student");
-	l = x.length; 
-	for(i=0;i<l;i++)
+	if(boolDataMode == boolDataMode_XML)
 	{
+
+		x = xmlDoc.getElementsByTagName("student");
+		l = x.length; 
+		for(i=0;i<l;i++)
+		{
+				table.innerHTML += "<tr>"
+								+"<td>"
+								+ x[i].childNodes[0].childNodes[0].nodeValue
+								+"</td>"
+								+"<td>"
+								+ x[i].childNodes[1].childNodes[0].nodeValue	
+								+"</td>"
+								+"<td>"
+								+ x[i].childNodes[2].childNodes[0].nodeValue	
+								+"</td>"
+								+"<td>"
+								+ x[i].childNodes[3].childNodes[0].nodeValue	
+								+"</td>"
+								+"</tr>";
+		}//for
+		table.innerHTML += "</tbody>";	
+	}
+	else if(boolDataMode == boolDataMode_JSON)
+	{
+		for(i=0;i<students.student.length;i++)
+		{
 			table.innerHTML += "<tr>"
 							+"<td>"
-							+ x[i].childNodes[0].childNodes[0].nodeValue
+							+ students.student[i].ID
 							+"</td>"
 							+"<td>"
-							+ x[i].childNodes[1].childNodes[0].nodeValue	
+							+ students.student[i].name
 							+"</td>"
 							+"<td>"
-							+ x[i].childNodes[2].childNodes[0].nodeValue	
+							+ students.student[i].sex
 							+"</td>"
 							+"<td>"
-							+ x[i].childNodes[3].childNodes[0].nodeValue	
+							+ students.student[i].maritalStatus
 							+"</td>"
 							+"</tr>";
-	}//for
-	table.innerHTML += "</tbody>";	
+		}	
+	}
 }
